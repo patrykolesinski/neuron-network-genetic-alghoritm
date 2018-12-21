@@ -17,9 +17,18 @@ public class Main {
                 Arrays.asList(1.0,1.0)
         );
         List<Integer> expectedOutputs = Arrays.asList(0,1,1,0);
-        Perceptron perceptron = new Perceptron(activationFunction, 2, 3, 2);
+
+        GeneticAlghoritmInvocator geneticAlghoritmInvocator = new GeneticAlghoritmInvocator();
+        Perceptron perceptron = geneticAlghoritmInvocator.findTheBestPerceptron(6, inputs, expectedOutputs, activationFunction);
         Double result = perceptron.test(inputs, expectedOutputs);
         System.out.println(result);
+        result = perceptron.test(inputs, expectedOutputs);
+        System.out.println(result);
+        result = perceptron.test(inputs, expectedOutputs);
+        System.out.println(result);
+        result = perceptron.test(inputs, expectedOutputs);
+        System.out.println(result);
+
     }
 
 

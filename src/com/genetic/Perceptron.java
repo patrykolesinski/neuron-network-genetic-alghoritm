@@ -6,11 +6,26 @@ import java.util.Random;
 import java.util.function.Function;
 
 public class Perceptron {
-    Integer[] numberOfNeuronsInLayers;
-    Integer numberOfInputs;
-    Function<Double, Double> activationFunction;
-    List<Double> weights = new ArrayList<>();
-    List<Layer> layers = new ArrayList<>();
+    private Integer[] numberOfNeuronsInLayers;
+    private Integer numberOfInputs;
+    private Function<Double, Double> activationFunction;
+
+    public void setWeights(List<Double> weights) {
+        this.weights = weights;
+    }
+
+    private List<Double> weights = new ArrayList<>();
+
+    public List<Double> getWeights() {
+        return weights;
+    }
+
+    public Double getResult() {
+        return result;
+    }
+
+    private List<Layer> layers = new ArrayList<>();
+    private Double result;
 
     public Perceptron(Function<Double, Double> activationFunction, Integer numberOfInputs, Integer... numberOfNeuronsInLayers) {
         this.numberOfNeuronsInLayers = numberOfNeuronsInLayers;
@@ -23,9 +38,8 @@ public class Perceptron {
     public Double test(List<List<Double>> inputs, List<Integer> expectedOutputs) {
         List<List<Double>> outputsFromPerceptron = testPerceptron(inputs);
         Integer verifiedPositively = verifyResults(expectedOutputs, outputsFromPerceptron);
-        System.out.println(outputsFromPerceptron);
-        System.out.println(verifiedPositively);
-        return (double)verifiedPositively/inputs.size();
+        result = (double)verifiedPositively/inputs.size();
+        return result;
     }
 
     private Integer verifyResults(List<Integer> expectedOutputs, List<List<Double>> outputsFromPerceptron) {
