@@ -39,6 +39,7 @@ public class Perceptron {
         List<List<Double>> outputsFromPerceptron = testPerceptron(inputs);
         Integer verifiedPositively = verifyResults(expectedOutputs, outputsFromPerceptron);
         result = (double)verifiedPositively/inputs.size();
+       // System.out.println(result);
         return result;
     }
 

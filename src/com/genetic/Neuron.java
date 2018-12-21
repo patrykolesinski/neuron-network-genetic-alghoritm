@@ -19,7 +19,7 @@ public class Neuron {
     }
 
     private Double calculateMembranePotential(List<Double> inputs, List<Double> weights){
-        Double sum = 1.0;
+        Double sum = 0.0;
         for (int i=0; i<inputs.size(); i++){
             sum = sum + inputs.get(i) * weights.get(i);
         }
