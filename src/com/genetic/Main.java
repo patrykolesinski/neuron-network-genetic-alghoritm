@@ -273,6 +273,7 @@ public class Main {
         System.out.println("RESULT TESTOWE");
         result = perceptron.test(testInputs, testOutputs);
         System.out.println(result);
+        perceptron.testExpectedVsResults(testInputs, testOutputs);
 
     }
 

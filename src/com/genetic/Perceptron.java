@@ -42,6 +42,25 @@ public class Perceptron {
        // System.out.println(result);
         return result;
     }
+    
+    public Double testExpectedVsResults(List<List<Double>> inputs, List<Integer> expectedOutputs) {
+        List<List<Double>> outputsFromPerceptron = testPerceptron(inputs);
+        for (int outputIndex = 0; outputIndex < outputsFromPerceptron.size(); outputIndex++){
+            List<Double> output = outputsFromPerceptron.get(outputIndex);
+            Integer maxIndex = 0;
+            for(int i=0; i<output.size(); i++){
+                if (output.get(i) > output.get(maxIndex)){
+                    maxIndex = i;
+                }
+            }
+            Integer expectedIndex = expectedOutputs.get(outputIndex);
+            System.out.println("\n--------------------");
+            System.out.println("Result: " + maxIndex);
+            System.out.println("Expected: " + expectedIndex);
+            System.out.println("--------------------");
+        }
+        return result;
+    }
 
     private Integer verifyResults(List<Integer> expectedOutputs, List<List<Double>> outputsFromPerceptron) {
         Integer verifiedPositively = 0;
