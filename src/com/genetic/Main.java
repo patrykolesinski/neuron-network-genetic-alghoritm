@@ -269,7 +269,7 @@ public class Main {
         Perceptron perceptron = geneticAlghoritmInvocator.findTheBestPerceptron(10000, inputs, expectedOutputs, activationFunction);
         System.out.println("RESULT UCZACE");
         Double result = perceptron.test(inputs, expectedOutputs);
-        perceptron.testExpectedVsResults(testInputs, testOutputs);
+        perceptron.testExpectedVsResults(inputs, expectedOutputs);
         System.out.println(result);
         System.out.println("RESULT TESTOWE");
         result = perceptron.test(testInputs, testOutputs);
